@@ -7,15 +7,25 @@
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.texnson.scribas.server.GreetingServiceImpl</servlet-class>
+    <servlet-name>userAccountService</servlet-name>
+    <servlet-class>com.texnson.scribas.server.UserAccountServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/scribas/greet</url-pattern>
+    <servlet-name>userAccountService</servlet-name>
+    <url-pattern>/scribas/userAccountService</url-pattern>
   </servlet-mapping>
   
+  <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Scribas.html</welcome-file>
